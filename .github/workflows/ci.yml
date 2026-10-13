@@ -1,3 +1,4 @@
+
 name: Build, Push and Scan
 
 on:
@@ -11,7 +12,6 @@ permissions:
 jobs:
   build-and-scan:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -31,4 +31,5 @@ jobs:
           tag: ${{ github.sha }}
 
       - name: Print image URI
-        run: echo "Pushed image: ${{ steps.build.outputs.image_uri }}"
+        run: |
+          echo "Pushed image: ${{ steps.build.outputs.image_uri }}"
